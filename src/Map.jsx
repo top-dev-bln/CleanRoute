@@ -47,6 +47,7 @@ const SearchBar = ({
   API_URL,
   setStart, setEnd
 }) => {
+  console.log('API_URL:', API_URL);
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
   const [activeSearchField, setActiveSearchField] = useState(null);
