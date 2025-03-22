@@ -1,5 +1,6 @@
 "use client"
 
+import { Link } from "react-router-dom"
 import { useEffect } from "react"
 
 export default function LandingPage() {
@@ -43,12 +44,14 @@ export default function LandingPage() {
 
           {/* Start Button Section */}
           <div className="w-full py-8 flex items-center justify-center bg-white">
-            <button
+            <Link to="/map"> 
+              <button
               className="h-12 px-12 text-lg font-medium bg-[#51a72f] text-white hover:bg-[#468a28] active:bg-[#3d7523] transition duration-150 rounded-lg shadow-md"
               onClick={() => console.log("Start button clicked")}
-            >
-              Start
-            </button>
+              >
+               Start
+              </button>
+            </Link> 
           </div>
 
           {/* App Description Section */}
