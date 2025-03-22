@@ -25,7 +25,7 @@ function Profile() {
                 </button>
                 <button className="px-3 py-1.5 text-sm font-medium border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
                   Remove
-                </button>
+                </button> 
               </div>
               <div className="mt-4">
                 <label htmlFor="picture-caption" className="block text-sm font-medium text-gray-700">
