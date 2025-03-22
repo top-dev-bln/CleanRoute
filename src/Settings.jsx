@@ -4,9 +4,9 @@ import { ChevronLeftIcon, ChevronRightIcon, UserIcon, BellIcon, LockKeyholeIcon,
 
 function Settings() {
   return (
-    <div className="fixed inset-0 flex flex-col bg-gray-400">
+    <div className="fixed inset-0 flex flex-col bg-gray-200">
       {/* Fixed header */}
-      <nav className="text-lg font-medium bg-gray-400 w-full z-20 shadow-lg flex items-center justify-center p-3">
+      <nav className="text-lg font-medium bg-white w-full z-20 shadow-lg flex items-center justify-center p-3">
         <button className="absolute left-2">
           <ChevronLeftIcon />
         </button>
