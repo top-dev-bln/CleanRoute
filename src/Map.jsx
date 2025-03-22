@@ -304,6 +304,7 @@ function Map() {
 
     try {
       console.log("Fetching route from server...");
+      console.log(API_URL);
       setError(''); 
       setLoading(true);
       
