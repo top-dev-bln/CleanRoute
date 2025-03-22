@@ -37,48 +37,42 @@ export default function Subscription() {
     {
       id: "basic",
       name: "Basic",
-      price: "$9.99",
+      price: "1.99$",
       period: "month",
-      description: "Perfect for individuals just getting started",
-      features: ["Access to basic features", "Limited storage (5GB)", "Email support", "Single user license"],
-      color: "bg-blue-50",
+      description: "lorem ipsum",
+      features: ["Access to basic features"],
+      color: "bg-green-50",
     },
     {
       id: "pro",
       name: "Professional",
-      price: "$19.99",
+      price: "$4.99",
       period: "month",
-      description: "Ideal for professionals and small teams",
+      description: "lorem ipsum",
       features: [
         "All Basic features",
-        "Expanded storage (50GB)",
-        "Priority email support",
-        "Up to 5 user licenses",
-        "Advanced analytics",
+        "Ad free experience",
+        "...",
       ],
-      color: "bg-blue-100",
+      color: "bg-green-100",
       recommended: true,
     },
     {
       id: "enterprise",
       name: "Enterprise",
-      price: "$49.99",
+      price: "$9.99",
       period: "month",
-      description: "For large organizations with advanced needs",
+      description: "lorem ipsum",
       features: [
         "All Professional features",
-        "Unlimited storage",
-        "24/7 phone and email support",
-        "Unlimited user licenses",
-        "Custom integrations",
-        "Dedicated account manager",
+        "AI air quality forecast"
       ],
-      color: "bg-blue-200",
+      color: "bg-green-200",
     },
   ]
 
   return (
-    <div className="min-h-screen bg-gray-400 py-8 px-4 overflow-auto">
+    <div className="min-h-screen bg-white py-8 px-4 overflow-auto">
       <div className="max-w-md mx-auto w-full pb-36">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold mb-2">Choose Your Plan</h1>
@@ -91,13 +85,13 @@ export default function Subscription() {
               key={plan.id}
               ref={(el) => (planRefs.current[plan.id] = el)}
               className={`relative p-4 rounded-lg shadow-md border-2 ${plan.color} ${
-                plan.recommended ? "border-blue-500" : "border-gray-200"
+                plan.recommended ? "border-green-500" : "border-gray-200"
               } transition-all duration-200 bg-white ${
                 expandedPlan === plan.id && plan.id === "enterprise" ? "mb-16" : ""
               }`}
             >
               {plan.recommended && (
-                <div className="bg-blue-500 text-white text-xs font-medium py-1 px-3 absolute right-4 top-0 rounded-b-md">
+                <div className="bg-[#51a72f] text-white text-xs font-medium py-1 px-3 absolute right-4 top-0 rounded-b-md">
                   Recommended
                 </div>
               )}
@@ -119,14 +113,14 @@ export default function Subscription() {
                     <ul className="space-y-2">
                       {plan.features.map((feature, index) => (
                         <li key={index} className="flex items-start">
-                          <CheckIcon size={18} className="text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <CheckIcon size={18} className="text-[#51a72f] mr-2 mt-0.5 flex-shrink-0" />
                           <span>{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div className="mt-4">
-                    <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-medium transition-colors">
+                    <button className="w-full bg-[#51a72f] hover:bg-[#468a28] text-white py-2 rounded-lg font-medium transition-colors">
                       Subscribe Now
                     </button>
                   </div>
