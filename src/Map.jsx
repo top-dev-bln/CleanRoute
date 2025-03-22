@@ -15,7 +15,9 @@ function Map() {
   const [end, setEnd] = useState(null);
   const [error, setError] = useState('');
   const [pickingMode, setPickingMode] = useState('start'); 
-  const API_URL = 'https://cleanroute-api.vercel.app/api';
+
+  const API_URL = import.meta.env.VITE_API_URL;
+  
 
   useEffect(() => {
     mapInstance.current = L.map(mapRef.current).setView([46.77, 23.58], 13);
