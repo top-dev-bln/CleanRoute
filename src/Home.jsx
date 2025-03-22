@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom'
 import React from 'react'
 import { useEffect } from "react"
 function Home() {
@@ -38,10 +39,11 @@ function Home() {
 
           {/* Login Button Section - Fixed height */}
           <div className="w-full py-4 flex items-center justify-center bg-gray-400">
-            <button className="h-12 px-8 text-lg font-medium bg-white text-amber-600 active:bg-amber-100 transition duration-0 rounded">
-              Login
-            </button>
-            
+            <Link to="/map">
+              <button className="h-12 px-8 text-lg font-medium bg-white text-amber-600 active:bg-amber-100 transition duration-0 rounded">
+                Start
+              </button>
+            </Link>
           </div>
 
           {/* Sign Up Section - Fixed height */}
