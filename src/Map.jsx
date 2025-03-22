@@ -47,7 +47,6 @@ const SearchBar = ({
   API_URL,
   setStart, setEnd
 }) => {
-  console.log('API_URL:', API_URL);
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
   const [activeSearchField, setActiveSearchField] = useState(null);
@@ -209,8 +208,8 @@ function Map() {
   const [endAddress, setEndAddress] = useState('');
   const [transportMode, setTransportMode] = useState('foot-walking');
   const [loading, setLoading] = useState(false);
-URL
-  const API_URL = process.env.REACT_APP_API_URL ;
+
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     mapInstance.current = L.map(mapRef.current).setView([46.77, 23.58], 13);
