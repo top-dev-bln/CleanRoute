@@ -17,7 +17,7 @@ function Map() {
   const [pickingMode, setPickingMode] = useState('start'); 
 
   const API_URL = import.meta.env.VITE_API_URL;
-  
+
 
   useEffect(() => {
     mapInstance.current = L.map(mapRef.current).setView([46.77, 23.58], 13);
@@ -66,7 +66,13 @@ function Map() {
         markersRef.current.start.setLatLng(start);
       } else {
 
-        const startMarker = L.marker(start, { draggable: true })
+        const startMarker = L.marker(start, { draggable: true,icon: L.icon({
+          iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        })})
           .addTo(mapInstance.current)
           .bindPopup("Start").openPopup();
 
@@ -86,7 +92,13 @@ function Map() {
         markersRef.current.end.setLatLng(end);
       } else {
 
-        const endMarker = L.marker(end, { draggable: true })
+        const endMarker = L.marker(end, { draggable: true, icon: L.icon({
+          iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        })})
           .addTo(mapInstance.current)
           .bindPopup("End").openPopup();
 
