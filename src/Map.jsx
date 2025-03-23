@@ -8,7 +8,7 @@ import { getUserLocation, getAddressFromCoords } from './utils/locationUtils';
 import { SearchBar } from './map/SearchBar';
 import { TransportControls } from './map/TransportControls';
 import { AirQualityControl } from './map/AirQualityControl';
-import { AirQualityLegend } from './map/AirQualityLegend';
+
 import { getAQIColor, displayAirSensorsOnMap } from './utils/airQualityUtils';
 
 // Server API URL - update this to your actual server URL
@@ -637,8 +637,7 @@ const Map = () => {
       {/* Air Quality Controls - now includes the Healthy Route button */}
       <AirQualityControl {...airQualityProps} />
       
-      {/* Air Quality Legend */}
-      {showAirSensors && <AirQualityLegend />}
+
       
       {/* Error Message */}
       {error && (
