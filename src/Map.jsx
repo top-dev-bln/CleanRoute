@@ -3,12 +3,12 @@ import L from 'leaflet';
 import axios from 'axios';
 import 'leaflet/dist/leaflet.css';
 import debounce from 'lodash.debounce';
-import { getUserLocation, getAddressFromCoords } from 'locationUtils';
+import { getUserLocation, getAddressFromCoords } from './locationUtils';
 import { SearchBar } from './map/SearchBar';
-import { TransportControls } from './map/TransportControls';
+
 import { AirQualityControl } from './map/AirQualityControl';
 import { AirQualityLegend } from './map/AirQualityLegend';
-import { getAQIColor, displayAirSensorsOnMap } from 'airQualityUtils';
+import { displayAirSensorsOnMap } from './airQualityUtils';
 
 // Server API URL - update this to your actual server URL
 const API_URL = 'https://cleanroute-api.vercel.app/api';
