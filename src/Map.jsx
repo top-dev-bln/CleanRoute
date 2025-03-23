@@ -29,7 +29,7 @@ const Map = () => {
   const [endAddress, setEndAddress] = useState('');
   
   // UI states
-  const [error, setError] = useState('');
+  const [error, console.log] = useState('');
   const [loading, setLoading] = useState(false);
   const [transportMode, setTransportMode] = useState('foot-walking');
   const [showAirSensors, setShowAirSensors] = useState(false);
@@ -68,7 +68,7 @@ const Map = () => {
       setStart([location.lat, location.lng]);
     } catch (err) {
       console.error("Location initialization failed:", err);
-      setError('Location services unavailable. Please enter your starting point manually.');
+      console.log('Location services unavailable. Please enter your starting point manually.');
     }
   };
   
@@ -83,16 +83,16 @@ const Map = () => {
   
   const handleLocationError = (error) => {
     console.error("Location error:", error);
-    setError('Could not determine your location. Please enter your starting point manually.');
-    setTimeout(() => setError(''), 7000);
+    console.log('Could not determine your location. Please enter your starting point manually.');
+    setTimeout(() => console.log(''), 7000);
   };
   
   const handleLocationFallback = (fallbackData) => {
     console.log(`Using fallback location from ${fallbackData.source}`);
     mapInstance.current.setView([fallbackData.lat, fallbackData.lng], 13);
     setStartAddress(fallbackData.place_name || 'Default Location');
-    setError('Could not determine your precise location. Using a default location instead.');
-    setTimeout(() => setError(''), 5000);
+    console.log('Could not determine your precise location. Using a default location instead.');
+    setTimeout(() => console.log(''), 5000);
   };
   
   // Handle markers when coordinates change
@@ -230,7 +230,7 @@ const Map = () => {
     }
     setEnd(null);
     setEndAddress('');
-    setError('');
+    console.log('');
   };
   
   // Core data fetching functions
@@ -250,7 +250,7 @@ const Map = () => {
     if (!start || !end) return;
     
     setLoading(true);
-    setError('');
+    console.log('');
     
     try {
       // Log coordinates for debugging
@@ -300,18 +300,18 @@ const Map = () => {
         const bounds = routeLayerRef.current.getBounds();
         mapInstance.current.fitBounds(bounds, { padding: [30, 30] });
       } else {
-        setError("No route found between these points.");
+        console.log("No route found between these points.");
       }
     } catch (err) {
       console.error("Error fetching route:", err.response?.data || err.message);
       
       // Special handling for rate limit errors
       if (err.response?.status === 429) {
-        setError("Service is busy. Please wait a minute and try again (API rate limit reached).");
+        console.log("Service is busy. Please wait a minute and try again (API rate limit reached).");
       } else if (err.response?.data?.details?.error?.message) {
-        setError(`Route error: ${err.response.data.details.error.message}`);
+        console.log(`Route error: ${err.response.data.details.error.message}`);
       } else {
-        setError("Failed to fetch route. Please try different points or try again later.");
+        console.log("Failed to fetch route. Please try different points or try again later.");
       }
     } finally {
       setLoading(false);
@@ -376,7 +376,7 @@ const Map = () => {
       }
     } catch (err) {
       console.error('Error fetching air sensors:', err);
-      setError('Failed to load air quality sensors. ' + (err.response?.data?.error || err.message));
+      console.log('Failed to load air quality sensors. ' + (err.response?.data?.error || err.message));
     } finally {
       setLoadingAirSensors(false);
     }
@@ -412,7 +412,7 @@ const Map = () => {
   };
   
   const retryGeolocation = async () => {
-    setError('Trying to get your location...');
+    console.log('Trying to get your location...');
     try {
       await getUserLocation(
         API_URL,
@@ -422,19 +422,19 @@ const Map = () => {
       );
     } catch (err) {
       console.error("Location retry failed:", err);
-      setError('Location services unavailable. Please enter your starting point manually.');
+      console.log('Location services unavailable. Please enter your starting point manually.');
     }
   };
   
   // Add a new function to fetch a healthy route
   const fetchHealthyRoute = async () => {
     if (!start || !end) {
-      setError("Please set start and end points first.");
+      console.log("Please set start and end points first.");
       return;
     }
     
     setLoadingHealthyRoute(true);
-    setError('');
+    console.log('');
     
     try {
       console.log('Fetching healthy route from', start, 'to', end);
@@ -499,19 +499,21 @@ const Map = () => {
           // Show message about the health benefit
           const benefitPercent = Math.round(((standard.avgAqi - healthy.avgAqi) / standard.avgAqi) * 100);
           
-          
+          console.log(`Healthy route is ${(healthy.distance / 1000).toFixed(1)} km (${Math.round((healthy.distance - standard.distance) / standard.distance * 100)}% longer) ` +
+              `but has ${benefitPercent}% better air quality. ` +
+              `Avg AQI: ${Math.round(healthy.avgAqi)} vs ${Math.round(standard.avgAqi)}`);
         }
       } else {
-        setError("Could not find a healthier alternative route.");
+        console.log("Could not find a healthier alternative route.");
       }
     } catch (err) {
       console.error("Error fetching healthy route:", err.response?.data || err.message);
       
       // Special handling for rate limit errors
       if (err.response?.status === 429) {
-        setError("Service is busy. Please wait a minute and try again (API rate limit reached).");
+        console.log("Service is busy. Please wait a minute and try again (API rate limit reached).");
       } else {
-        setError("Failed to calculate a healthier route. " + (err.response?.data?.error || err.message));
+        console.log("Failed to calculate a healthier route. " + (err.response?.data?.error || err.message));
       }
     } finally {
       setLoadingHealthyRoute(false);
