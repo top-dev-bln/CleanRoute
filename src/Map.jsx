@@ -111,10 +111,17 @@ const Map = () => {
     if (markersRef.current[type]) {
       markersRef.current[type].setLatLng(position);
     } else {
-      const marker = L.marker(position, { draggable: true })
-        .addTo(mapInstance.current)
+      const marker = L.marker(position, { draggable: true ,icon: L.icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      })}).addTo(mapInstance.current)
         .bindPopup(type === 'start' ? "Start" : "End")
         .openPopup();
+
       
       marker.on('dragend', (e) => {
         const { lat, lng } = e.target.getLatLng();
