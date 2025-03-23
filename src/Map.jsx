@@ -111,7 +111,11 @@ const Map = () => {
     if (markersRef.current[type]) {
       markersRef.current[type].setLatLng(position);
     } else {
-      const marker = L.marker(position, { draggable: true })
+      const marker = L.marker(position, { draggable: true, icon: L.icon({
+        iconUrl: type === 'start' ? 'images/start-icon.png' : 'images/end-icon.png',
+        iconSize: [32, 32],
+        iconAnchor: [16, 32]
+       })})
         .addTo(mapInstance.current)
         .bindPopup(type === 'start' ? "Start" : "End")
         .openPopup();
