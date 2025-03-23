@@ -11,7 +11,7 @@ import { AirQualityLegend } from './map/AirQualityLegend';
 import { getAQIColor, displayAirSensorsOnMap } from './utils/airQualityUtils';
 
 // Server API URL - update this to your actual server URL
-const API_URL = 'http://clean-route.vercel.app/api';
+const API_URL = 'https://clean-route.vercel.app/api';
 
 const Map = () => {
   // Core refs
