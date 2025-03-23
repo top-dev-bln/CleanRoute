@@ -111,11 +111,7 @@ const Map = () => {
     if (markersRef.current[type]) {
       markersRef.current[type].setLatLng(position);
     } else {
-      const marker = L.marker(start, { draggable: true,icon: L.icon({
-        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-        iconSize: [25, 41],
-
-      })})
+      const marker = L.marker(position, { draggable: true })
         .addTo(mapInstance.current)
         .bindPopup(type === 'start' ? "Start" : "End")
         .openPopup();
