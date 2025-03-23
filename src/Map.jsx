@@ -499,9 +499,7 @@ const Map = () => {
           // Show message about the health benefit
           const benefitPercent = Math.round(((standard.avgAqi - healthy.avgAqi) / standard.avgAqi) * 100);
           
-          setError(`Healthy route is ${(healthy.distance / 1000).toFixed(1)} km (${Math.round((healthy.distance - standard.distance) / standard.distance * 100)}% longer) ` +
-              `but has ${benefitPercent}% better air quality. ` +
-              `Avg AQI: ${Math.round(healthy.avgAqi)} vs ${Math.round(standard.avgAqi)}`);
+          
         }
       } else {
         setError("Could not find a healthier alternative route.");
