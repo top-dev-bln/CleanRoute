@@ -29,7 +29,7 @@ const Map = () => {
   const [endAddress, setEndAddress] = useState('');
   
   // UI states
-  const [error, console.log] = useState('');
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [transportMode, setTransportMode] = useState('foot-walking');
   const [showAirSensors, setShowAirSensors] = useState(false);
