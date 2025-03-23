@@ -1,10 +1,18 @@
 import React from 'react'
-import { CircleAlertIcon } from "lucide-react"
+import { CircleAlertIcon , ChevronLeftIcon} from "lucide-react"
+import { Link } from 'react-router-dom';
 function Profile() {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-2xl font-bold mb-6">Public profile</h1>
+      <h1 className="text-2xl font-bold mb-6 flex items-center space-x-2">
+  <Link to="/map">
+    <button className="flex items-center">
+      <ChevronLeftIcon className="w-6 h-6" />
+    </button>
+  </Link>
+  <span>Public profile</span>
+</h1>
 
         <div className="space-y-8 bg-white p-6 rounded-lg shadow-sm">
           {/* Profile Picture */}

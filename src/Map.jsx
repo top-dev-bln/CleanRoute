@@ -210,14 +210,14 @@ const SearchBar = ({
   {dropdownOpen && (
     <div className="absolute bottom-16 right-0 bg-white shadow-lg rounded-md p-3">
       <ul>
-        <Link to="/settings">
-        <li className="p-2 hover:bg-gray-200 cursor-pointer">Setting</li>
-        </Link>
         <Link to="/profile">
         <li className="p-2 hover:bg-gray-200 cursor-pointer">Profile</li>
         </Link>
-        <Link to="/subscription">
-        <li className="p-2 hover:bg-gray-200 cursor-pointer">Subscription</li>
+        <Link to="/Subscription">
+        <li className="p-2 hover:bg-gray-200 cursor-pointer">Subscriptions</li>
+        </Link>
+        <Link to="/settings">
+        <li className="p-2 hover:bg-gray-200 cursor-pointer">Settings</li>
         </Link>
       </ul>
     </div>

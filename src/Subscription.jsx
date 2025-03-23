@@ -1,8 +1,8 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { ChevronDownIcon, ChevronUpIcon, CheckIcon } from "lucide-react"
-
+import { ChevronDownIcon, ChevronUpIcon, CheckIcon,XIcon , ChevronLeftIcon  } from "lucide-react"
+import { Link } from 'react-router-dom';
 export default function Subscription() {
   const [expandedPlan, setExpandedPlan] = useState(null)
   const planRefs = useRef({})
@@ -37,22 +37,22 @@ export default function Subscription() {
     {
       id: "basic",
       name: "Basic",
-      price: "1.99$",
+      price: "Free",
       period: "month",
-      description: "lorem ipsum",
+      description: "Healthy routes",
       features: ["Access to basic features"],
       color: "bg-green-50",
     },
     {
       id: "pro",
       name: "Professional",
-      price: "$4.99",
+      price: "2.99€",
       period: "month",
-      description: "lorem ipsum",
+      description: "Routes and notifications",
       features: [
         "All Basic features",
         "Ad free experience",
-        "...",
+        "Personalised notifications",
       ],
       color: "bg-green-100",
       recommended: true,
@@ -60,12 +60,14 @@ export default function Subscription() {
     {
       id: "enterprise",
       name: "Enterprise",
-      price: "$9.99",
+      price: "7.99€",
       period: "month",
-      description: "lorem ipsum",
+      description: "Routes and advanced stats",
       features: [
         "All Professional features",
-        "AI air quality forecast"
+        "Ad free experience",
+        "AI air quality forecast",
+        "Acces to routes history and predictions",
       ],
       color: "bg-green-200",
     },
@@ -74,10 +76,16 @@ export default function Subscription() {
   return (
     <div className="min-h-screen bg-white py-8 px-4 overflow-auto">
       <div className="max-w-md mx-auto w-full pb-36">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2">Choose Your Plan</h1>
-          <p className="text-gray-600">Select the subscription that works best for you</p>
-        </div>
+        <div className="text-center mb-8 flex flex-col items-center">
+          <div className="text-center mb-8 flex items-center justify-center space-x-2">
+
+            <Link to="/map" className="text-xl text-gray-600">
+              <ChevronLeftIcon className="w-6 h-6" />
+            </Link>
+            <h1 className="text-3xl font-bold mb-2">Choose Your Plan</h1>
+            </div>
+            <p className="text-gray-600">Select the subscription that works best for you</p>
+          </div>
 
         <div className="space-y-4">
           {plans.map((plan) => (

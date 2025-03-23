@@ -1,15 +1,18 @@
 "use client"
 
 import { ChevronLeftIcon, ChevronRightIcon, UserIcon, BellIcon, LockKeyholeIcon, GlobeIcon, PictureInPicture2Icon, DatabaseIcon, CircleHelpIcon, MonitorSmartphoneIcon } from "lucide-react"
-
+import { Link } from 'react-router-dom';
 function Settings() {
   return (
-    <div className="fixed inset-0 flex flex-col bg-gray-200">
+    <div className="fixed inset-0 flex flex-col bg-white">
       {/* Fixed header */}
       <nav className="text-lg font-medium bg-white w-full z-20 shadow-lg flex items-center justify-center p-3">
-        <button className="absolute left-2">
+        
+        <Link to="/map" className="absolute left-2">
           <ChevronLeftIcon />
-        </button>
+        </Link>
+        
+        
         <div>Settings</div>
       </nav>
 
